@@ -8,7 +8,8 @@ public:
 	Complex(T  Real = 0,T Image=0 );
 	Complex(T a);
 	//Complex Complex<T>::operator+(Complex &c1, Complex &c2 )
-	friend  Complex operator+(Complex &c1, Complex &c2 );
+	//friend  Complex operator+(Complex &c1, Complex &c2 );
+	friend  Complex operator+<T>(Complex &c1, Complex &c2 );
 
 	friend Complex operator-(Complex &c1, Complex &c2 )
 	{
@@ -52,14 +53,14 @@ class Complex<float> __cdecl operator+(class Complex<float> &,class Complex<floa
 fatal error LNK1120: 1 个无法解析的外部命令
 	========== 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 ==========
 */
-/*
+/**/
 template<class T>
 Complex<T> operator+(Complex<T> &c1, Complex<T> &c2 )
 {
 	Complex<T> tmp(c1.Real+c2.Real, c1.Image + c2.Image);
 	return tmp;
 }
-*/
+
 
 void main()
 {
@@ -67,8 +68,8 @@ void main()
 	Complex<float> c2(3.0, 4.0);
 	c1.print();
 
-	//Complex<float> c3 = c1 + c2;
-	//c3.print();
+	Complex<float> c3 = c1 + c2;
+	c3.print();
 
 	Complex<float> c4 = c1 - c2;
 	c4.print();
